@@ -2,7 +2,7 @@
  * @Author: wangming
  * @Date: 2020-03-27 14:56:03
  * @LastEditors: wangming
- * @LastEditTime: 2020-03-27 17:34:11
+ * @LastEditTime: 2020-03-27 17:38:25
  * @Description: file content
  -->
 
@@ -14,7 +14,7 @@ uni-app 开发中 根据规则 自动配置页面 pages，分包 subPackages,和
 
 > npm install uni-auto-pages
 
-首先通过 vue-cli 创建 uni-app 项目 vie.config.js 配置
+首先通过 vue-cli 创建 uni-app 项目 vue.config.js 配置
 
 ##### \*注：tempages.json 参数是模版文件名 必须在 src 下
 
@@ -85,7 +85,7 @@ module.exports = {
 
 ## page 模版参考
 
-```json
+```javascript
 {
   "pages": [], //可忽略
   "subPackages": [], //可忽略
