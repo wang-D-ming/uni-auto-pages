@@ -1,0 +1,24 @@
+{
+  "name": "uni-auto-pages",
+  "author": "wangdaming",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [
+    "uni-app",
+    "auto",
+    "pages"
+  ],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wang-D-ming/uni-auto-pages.git"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "fast-glob": "^3.2.2",
+    "fs-extra": "^9.0.0",
+    "path": "^0.12.7",
+    "qs": "^6.9.3",
+    "webpack-merge": "^4.2.2"
+  }
+}
