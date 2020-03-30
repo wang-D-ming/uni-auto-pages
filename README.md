@@ -2,13 +2,13 @@
  * @Author: wangming
  * @Date: 2020-03-27 14:56:03
  * @LastEditors: wangming
- * @LastEditTime: 2020-03-27 17:38:25
+ * @LastEditTime: 2020-03-30 09:50:02
  * @Description: file content
  -->
 
 # uni-auto-pages
 
-uni-app 开发中 根据规则 自动配置页面 pages，分包 subPackages,和 condition 生成 pages.josn，类似 vue-auto-routing,使用非常简单。
+uni-app 开发中根据规则自动配置页面 pages，分包 subPackages,和 condition 生成 pages.josn 的 webpack 插件，使得开发者不需要手动的去维护 pages.json。类似 vue-auto-routing,使用非常简单。
 
 ## 安装
 
@@ -16,7 +16,7 @@ uni-app 开发中 根据规则 自动配置页面 pages，分包 subPackages,和
 
 首先通过 vue-cli 创建 uni-app 项目 vue.config.js 配置
 
-##### \*注：tempages.json 参数是模版文件名 必须在 src 下
+##### \*注：tempages.json 参数是模版文件名 必须在 src 下，文件名可以自定义
 
 ```javascript
 const UniAutoPagesPlugin = require('uni-auto-pages');
@@ -32,14 +32,14 @@ module.exports = {
 可以在模版文件中配置 condition.current 决定当前激活的模式，list 节点的索引值
 
 ```javascript
-"condition": { "current": 0, "list": [] }
+"condition": { "current": 0}
 ```
 
 > 启动模式配置，仅开发期间生效，用于模拟直达页面的场景，如：小程序转发后，用户点击所打开的页面。
 
 ## 使用说明
 
-##### \*注：所有的分包外层的文件夹必须 sub\_\*\*\*命名。 components 或者**\*** 的文件夹会被忽略
+##### \*注：所有的分包外层的文件夹必须 sub\_\*\*\*命名。 components 和\_\_\*\_\_ 的文件夹会被忽略
 
 #### page 页面 通过<page-meta>标签放在页面顶层配置 style 参数
 
