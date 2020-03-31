@@ -2,7 +2,7 @@
  * @Author: wangming
  * @Date: 2020-03-27 14:56:03
  * @LastEditors: wangming
- * @LastEditTime: 2020-03-31 15:50:06
+ * @LastEditTime: 2020-03-31 16:34:58
  * @Description: file content
  -->
 
@@ -54,16 +54,17 @@ module.exports = {
  </page-meta>
 ```
 
-condition 类型 Object| Array<Object>
 开发模式激活改页面配置 关键字 condition 参数即可 query 配置开发页面参数 ,condition 可以配置多个页面
 
 ```javascript
+// condition 类型 Object| Array<Object>
 <page-meta>
  {
   "enablePullDownRefresh": true,
   "navigationBarTextStyle": "black",
   "navigationStyle": "custom",
-   condition:{name:'首页',query:{}}
+  condition:{name:'首页',query:{}}
+  //  condition:[{name:'首页vip1',query:{vip:1}},{name:'首页vip2',query:{vip:2}}]
  }
  </page-meta>
 ```
