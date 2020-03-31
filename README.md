@@ -2,7 +2,7 @@
  * @Author: wangming
  * @Date: 2020-03-27 14:56:03
  * @LastEditors: wangming
- * @LastEditTime: 2020-03-30 09:50:02
+ * @LastEditTime: 2020-03-31 15:50:06
  * @Description: file content
  -->
 
@@ -54,7 +54,8 @@ module.exports = {
  </page-meta>
 ```
 
-开发模式激活改页面配置 关键字 condition 参数即可 query 配置开发页面参数
+condition 类型 Object| Array<Object>
+开发模式激活改页面配置 关键字 condition 参数即可 query 配置开发页面参数 ,condition 可以配置多个页面
 
 ```javascript
 <page-meta>
@@ -69,12 +70,12 @@ module.exports = {
 
 #### 设置应用入口页（即首页）
 
-> 通过在<page-meta> 标签内配置关键字 startHome:true 确定入口页,如果未配置或者配置多个则根据目录顺序决定
+> 通过在<page-meta> 标签内配置关键字 \_home:true 确定入口页,如果未配置或者配置多个则根据目录顺序决定
 
 ```javascript
 <page-meta>
  {
-   startHome:true,
+   _home:true,
   "enablePullDownRefresh": true,
   "navigationBarTextStyle": "black",
   "navigationStyle": "custom",
