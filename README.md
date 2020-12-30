@@ -2,7 +2,7 @@
  * @Author: wangming
  * @Date: 2020-03-27 14:56:03
  * @LastEditors: wangming
- * @LastEditTime: 2020-03-31 16:34:58
+ * @LastEditTime: 2020-12-30 23:51:22
  * @Description: file content
  -->
 
@@ -16,18 +16,18 @@ uni-app 开发中根据规则自动配置页面 pages，分包 subPackages,和 c
 
 首先通过 vue-cli 创建 uni-app 项目 vue.config.js 配置
 
-##### \*注：tempages.json 参数是模版文件名 必须在 src 下，文件名可以自定义
+##### \*注：template.json 参数是模版文件名 必须在 src 下，文件名可以自定义 默认名 template.json
 
 ```javascript
 const UniAutoPagesPlugin = require('uni-auto-pages');
 module.exports = {
   configureWebpack: {
-    plugins: [new UniAutoPagesPlugin('tempages.json')]
-  }
+    plugins: [new UniAutoPagesPlugin('template.json')],
+  },
 };
 ```
 
-> tempages.json 是你的模版文件里面设置一些除了 subPackages，condition,pages 以外的配置 会写入 pages.json 中
+> template.json 是你的模版文件里面设置一些除了 subPackages，condition,pages 以外的配置 会写入 pages.json 中
 
 可以在模版文件中配置 condition.current 决定当前激活的模式，list 节点的索引值
 
@@ -41,40 +41,41 @@ module.exports = {
 
 ##### \*注：所有的分包外层的文件夹必须 sub\_\*\*\*命名。 components 和\_\_\*\_\_ 的文件夹会被忽略
 
-#### page 页面 通过<page-meta>标签放在页面顶层配置 style 参数
+#### page 页面 通过<route-meta>标签放在页面顶层配置 style 参数
 
 ```javascript
 
-<page-meta>
+<route-meta>
  {
   "enablePullDownRefresh": true,
   "navigationBarTextStyle": "black",
   "navigationStyle": "custom"
  }
- </page-meta>
+ </route-meta>
 ```
 
 开发模式激活改页面配置 关键字 condition 参数即可 query 配置开发页面参数 ,condition 可以配置多个页面
 
 ```javascript
 // condition 类型 Object| Array<Object>
-<page-meta>
+<route-meta>
  {
   "enablePullDownRefresh": true,
   "navigationBarTextStyle": "black",
   "navigationStyle": "custom",
-  condition:{name:'首页',query:{}}
+  condition:{name:'首页',query:{}} //query两种配置参数的方式支持对象和字符串
   //  condition:[{name:'首页vip1',query:{vip:1}},{name:'首页vip2',query:{vip:2}}]
+  //  condition:[{name:'首页vip1',query:'vip=1&name=首页v&interval=4000&autoplay=false']
  }
- </page-meta>
+ </route-meta>
 ```
 
 #### 设置应用入口页（即首页）
 
-> 通过在<page-meta> 标签内配置关键字 \_home:true 确定入口页,如果未配置或者配置多个则根据目录顺序决定
+> 通过在<route-meta> 标签内配置关键字 \_home:true 确定入口页,如果未配置或者配置多个则根据目录顺序决定
 
 ```javascript
-<page-meta>
+<route-meta>
  {
    _home:true,
   "enablePullDownRefresh": true,
@@ -82,7 +83,7 @@ module.exports = {
   "navigationStyle": "custom",
    condition:{name:'首页',query:{}}
  }
- </page-meta>
+ </route-meta>
 ```
 
 ## page 模版参考
@@ -133,7 +134,7 @@ module.exports = {
 
 ├─ src
 | ├─ pages.json
-| ├─ tempages.json
+| ├─ template.json
 | ├─ sub_manage
 |    └─pages
 |      └─manage
